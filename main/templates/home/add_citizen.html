@@ -1,0 +1,197 @@
+{% extends "layout/base.html" %}
+{% block main_content %}
+    {% load static %}
+                                {% if messages %}
+                                        {% for message in messages %}
+                                                {{ message|safe }}
+                                            
+                                        {% endfor %}
+                                    
+                                {% endif %}
+
+
+
+                                <style>
+
+
+                                    .p{
+                                        display: inline;
+                                        width: 100px;
+                                        font-size:50px;
+                                        height: 100px;
+                                        
+                                    }
+                                     
+                                            .hader{
+                                                border: 1px solid ;
+                                                margin:  0px;
+                                                padding: 30px 0 0 0;
+                                                height: 100px;
+                                                background-color: rgb(48, 41, 41);
+                                                size: 50px;
+                                                text-align:right;
+                                                box-shadow: 0px 15px 20px rgba(0, 0,0, 1); ;
+                                            }
+                                            .hader a{
+                                            text-decoration:none;
+                                            text-shadow: 2px;
+                                            font-size: 27px;
+                                            margin: 30px 20px 0px 0px;
+                                            padding: auto;
+                                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                            color: #fff;
+                                            }
+                                            .hader a:hover{
+                                                text-decoration: underline;
+                                            }
+                                            .paper2{
+                                                text-align: center;
+                                                color: #fff;
+                                                font-size: 20px;
+                                                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+                                                margin-top: 20px;
+                                                width: 380px;
+                                       background: rgb(50, 36, 36);
+                                       border-radius: 15px;
+                                       box-shadow: 0px 15px 20px rgba(0, 0,0, 1);
+                                       border: solid; 
+                                            }
+                                            .paper{
+                                            
+                                                width: 380px;
+                                       background: #fff;
+                                       border-radius: 15px;
+                                       box-shadow: 0px 15px 20px rgba(0, 0,0, 1);
+                                       border: solid;
+                                            }
+                                        button{  
+                                            
+                                            margin-top: 8px;
+                                            display: block; 
+                                            padding: 10px;
+                                       font-size:20px ;
+                                       padding-left: 20px;
+                                       border-radius: 25px; 
+                                       border: 1px solid lightgrey;    
+                                        }
+                                            
+                                          input{
+                                            margin-top: 8px;
+                                            display: block; 
+                                            padding: 10px;
+                                       font-size:17px ;
+                                       padding-left: 20px;
+                                       border-radius: 25px; 
+                                       border: 1px solid lightgrey;    
+                                        }
+                                    body{
+                                        margin: 0px;
+                                        padding: 0px;
+                                        
+                                    }
+                                    table{
+                                        width: 100%;
+                                        height: 50px;
+                                        border: ridge;
+                                        background-color: #fff;
+                                        text-align: right;
+                                        margin-right: 0%;
+                                        margin-left: 2px;
+                                        background-color: rgb(174, 174, 193);
+                                        font-size: 30px;
+                                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; ;
+                                    }
+                                    .table{
+                                        width: 99%;
+                                        margin-right: 20px;
+                                        margin-top: 20px;
+                                    }
+                                    
+                                    .foder{
+                                        background-color: beige;
+                                        box-shadow: 0px 15px 20px rgba(0, 0,0, 1);
+                                        height: 150px;
+                                        margin-top:85px ;
+                                        font-size: 36px;
+                                        text-align: center;
+                                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+                                    
+                                    }
+                                    
+                                     .ppfoder{
+                                    
+                                        background-color: beige;
+                                        box-shadow: 0px 15px 20px rgba(0, 0,0, 1);
+                                        height: 150px;
+                                        margin-top:255px ;
+                                        font-size: 36px;
+                                        text-align: center;
+                                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+                                    
+                                    
+                                    
+                                    
+                                     }
+                                    .viewfoder{ 
+                                        background-color: beige;
+                                     box-shadow: 0px 15px 20px rgba(0, 0,0, 1);
+                                     height: 200px;
+                                     margin-top:250px ;
+                                     font-size: 36px;
+                                     text-align: center;
+                                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+                                    }
+                                    .paper3{
+                                        text-align: center;
+                                        color: #fff;
+                                        font-size: 20px;
+                                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+                                        margin-top: 100px;
+                                        width: 380px;
+                                    background: rgb(50, 36, 36);
+                                    border-radius: 15px;
+                                    box-shadow: 0px 15px 20px rgba(0, 0,0, 1);
+                                    border: solid; 
+                                    }
+                                    .image{
+                                        width: 500px;
+                                        height: 200px;
+                                        margin-top:500px ;
+                                        
+                                    }
+                                                            </style>
+                                <center>
+                                <form method="post" action="/save_citizen" enctype="multipart/form-data">
+                                    {% csrf_token %}
+
+                                    <div class="paper2">
+                                        <p class="pfoder">تسجيل مركبه جديده  </p>
+                                        </div>
+                                        <div class="paper">
+
+                                        <input class="" type="text" name="name" id="example-text-input"placeholder=" اسم المركبه"
+                                               required>
+                                  
+                                        <input class="" type="text" name="national_id" placeholder="رقم اللوحه"
+                                               id="example-url-input" required>
+                                    
+                                        <input class="" type="text" name="address" id="example-email-input"placeholder="مكان الترخيص  "
+                                               required>
+                                    
+<label for=""style="font-size 22px">ًصوره اللوحه</label>
+                                        <input class="" type="file" name="image" id="example-tel-input" placeholder="صوره اللوحه "
+                                               required>
+                                    
+                                        <button type="submit" class="">Submit</button>
+                      
+              </div>
+                                </form>
+
+                            
+
+
+                            </center>
+{% endblock %}
+{% block js_content %}
+    <script src="{% static  'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+{% endblock %}

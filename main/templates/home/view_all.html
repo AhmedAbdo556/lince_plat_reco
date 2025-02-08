@@ -1,0 +1,43 @@
+{% extends "layout/base2.html" %}
+{% block main_content %}
+    {% load static %}
+    
+                        <h4></h4>
+                        {% if messages %}
+                                {% for message in messages %}
+                                        {{ message|safe }}
+                                    
+                                {% endfor %}
+                            
+                        {% endif %}
+                        
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>الاسم </th>
+                                    <th>رقم اللوحه </th>
+                                    <th>مكان الاكتشاف </th>
+                                    <th>زمن الاكتشاف  </th>
+                                    <th>حاله الاكتشاف</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for thief in thiefs %}
+                                    <tr>
+                                        <td>{{ thief.name }}</td>
+                                        <td>{{ thief.national_id }}</td>
+                                        <td>{{ thief.address }}</td>
+                                        <td>{{ thief.created_at }}</td>
+                                        <td>
+                                            <a href="https://www.google.com/maps/place/Emirates+College+of+Technology/@15.5516916,32.5876879,16.79z/data=!4m15!1m8!3m7!1s0x168e901573108857:0x9f4bd41faae36733!2sBlock+46,+Khartoum,+Sudan!3b1!8m2!3d15.541348!4d32.5574988!16s%2Fg%2F11pbfvcj3z!3m5!1s0x168e90fb9bbfade3:0x82bcc3f2b8aa7c4e!8m2!3d15.5514019!4d32.590471!16s%2Fg%2F1hhmtqnq8?hl=en" class="btn-primary">View Location</a>
+                                            <a href="{% url 'found_thief' thief_id=thief.pk %}">تم العثور عليها</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        
+{% endblock %}
+{% block js_content %}
+    <script src="{% static  'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>نظام تحديد المركبات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static  'assets/images/icon/logo.png' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/bootstrap-rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/metisMenu.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/slicknav.min.css' %}">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"/>
+    <!-- others css -->
+    <link rel="stylesheet" href="{% static  'assets/css/typography.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/default-css.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/responsive.css' %}">
+    <!-- modernizr css -->
+    <script src="{% static  'assets/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+
+<body>
+
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+<style>
+    .container img{ box-shadow: 3px 10px 10px #000;  border-radius: 20px; width: 160px; }
+    .container img:hover{ transform: scale3d(1.3, 1.3, 1.3); transition: .3s ease-in;}
+    .form-gp label{ color: #007bff; right: 0;}
+    .form-gp i{ font-size: 18px; top: 8px; left: 20px; }
+    .form-gp  input{border-radius: 5px; padding: 17px; }
+    .login-form-body .custom-control.custom-checkbox{padding: 0; font-size: 17px; }
+    .login-form-body .submit-btn-area button:hover{transform: perspective(1px) translateZ(0); transition: .6s all ease-in;}
+</style>
+
+
+<style>
+        .login-box form {margin-top: 30px;}
+        .form-login_usre a{padding-right: 200px; padding-top: 5px; padding-bottom: 5px; text-transform: uppercase; margin-top: 5px;
+       background: linear-gradient(to right, #007bff 20%, #8a73e8db 80%); border-radius: 15px 15px 15px 15px; font-size: 12px; color: #fff;
+       padding: 8px; border: 2px solid #fff; box-shadow: 5px 4px 10px #007; }
+       .form-login_usre a:hover{color: #9bedf5; transition: .5s all ease-in-out; }
+       .submit-btn-area button {width: 100%; height: 50px; border: none; background: #fff; color: #585b5f; border-radius: 40px;
+       text-transform: uppercase; letter-spacing: 0; font-weight: 600; font-size: 12px; box-shadow: 0 0 22px rgb(0 0 0 / 7%); transition: all 0.5s ease-in-out;}
+       .login-form-head {padding: 35px; }
+
+</style>
+<!-- preloader area end -->
+<!-- login area start -->
+<div class="login-area" style="background: #212529; ">
+    <div class="container">
+        <div class="login-box">
+            <form method="post" action="/login_admin" style="border-radius: 230px;">
+                {% csrf_token %}
+                <div class="login-form-head" style=" background: linear-gradient(to right, #007bff 20%, #8a73e8db 80%); border-radius: 8px 8px 0px 0px;">
+                    <h4>login police man</h4>
+                    <img src="{% static 'assets/images/police/po_sudanis.png' %}" width="100" height="100"/>
+                    {% if messages %}
+                        <div class="span12">
+                            {% for message in messages %}
+                                <div class="alert alert-danger">
+                                    {{ message|safe }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="login-form-body" style="background: gainsboro; box-shadow: 0px 3px 5px #000 inset; border-radius: 0px 0px 8px 8px;">
+                    <div class="form-gp">
+                        <label for="exampleInputEmail1" style="top: -17px;">Police_ID</label>
+                        <input type="text" id="exampleInputEmail1" name="login_email" required>
+                        <i class="ti-email"></i>
+                    </div>
+                    <div class="form-gp">
+                        <label for="exampleInputPassword1" style="top: -17px; ">password</label>
+                        <input type="password" id="exampleInputPassword1" name="login_password" required>
+                        <i class="ti-lock"></i>
+                        
+                    
+                    </div>
+                    
+                    <div class="submit-btn-area">
+                        <button type="submit" class="btn btn-primary">login</button>
+
+                    </div>
+
+                    <div class="submit-btn-area">
+                        <br>
+                    </div>
+                    <div class="form-login_usre" >
+                        <center>
+                        <a href="/">............................................ login admin ................................................</a>
+                    </center>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- login area end -->
+
+<!-- jquery latest version -->
+<script src="{% static  'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+<!-- bootstrap 4 js -->
+<script src="{% static  'assets/js/popper.min.js' %}"></script>
+<script src="{% static  'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static  'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static  'assets/js/metisMenu.min.js' %}"></script>
+<script src="{% static  'assets/js/jquery.slimscroll.min.js' %}"></script>
+<script src="{% static  'assets/js/jquery.slicknav.min.js' %}"></script>
+
+<!-- others plugins -->
+<script src="{% static  'assets/js/plugins.js' %}"></script>
+<script src="{% static  'assets/js/scripts.js' %}"></script>
+
+</body>
+
+</html>
